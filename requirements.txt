@@ -1,0 +1,10 @@
+# requirements.txt
+
+streamlit            # Para a interface web
+torch                # Núcleo PyTorch
+torchvision          # Modelos pré-treinados (ResNet, transforms)
+lpips                # Métrica perceptual LPIPS
+Pillow               # Leitura/manipulação de imagens
+numpy                # Operações numéricas
+matplotlib
+transformers
