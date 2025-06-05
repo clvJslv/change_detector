@@ -8,3 +8,4 @@ Pillow               # Leitura/manipulação de imagens
 numpy                # Operações numéricas
 matplotlib
 transformers
+hf_xet
