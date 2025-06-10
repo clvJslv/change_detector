@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import torch
 from PIL import Image
@@ -12,6 +13,9 @@ from utils_forensics import (
     load_faceforgery_model, predict_deepfake,
     load_image
 )
+
+# (Caso deseje usar o token também via variável, mas não necessário)
+# os.environ["HUGGINGFACE_TOKEN"] = "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"
 
 st.set_page_config(
     page_title="🔍 Change & Tampering Detector",
@@ -301,7 +305,7 @@ else:
             st.markdown(
                 """
                 **Como Funciona (DeepFake Facial)**  
-                - Modelos treinados para detectar deepfakes em rostos, provenientes de checkpoints como:
+                - Modelos treinados para detectar deepfakes em rostos:
                   - dima806/deepfake_vs_real_image_detection  
                   - prithivMLmods/deepfake-detector-model-v1  
                   - prithivMLmods/Deep-Fake-Detector-v2-Model  

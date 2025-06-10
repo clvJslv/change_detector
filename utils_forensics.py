@@ -2,16 +2,23 @@ import torch
 from PIL import Image
 from transformers import AutoFeatureExtractor, AutoModelForImageClassification
 
+# Token embutido:
+HF_TOKEN = "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"
+
 # -----------------------------
 # Funções para tampering geral
 # -----------------------------
 def load_forensics_model(model_name: str, device: torch.device):
     """
     Carrega o modelo de detecção de manipulação genérica e seu feature extractor.
-    Exemplo de model_name: "coastalfrost/clarifai-image-tampering-detection".
+    Usa HF_TOKEN embutido para autenticação.
     """
-    feature_extractor = AutoFeatureExtractor.from_pretrained(model_name)
-    model = AutoModelForImageClassification.from_pretrained(model_name).to(device)
+    feature_extractor = AutoFeatureExtractor.from_pretrained(
+        model_name, use_auth_token=HF_TOKEN
+    )
+    model = AutoModelForImageClassification.from_pretrained(
+        model_name, use_auth_token=HF_TOKEN
+    ).to(device)
     model.eval()
     return feature_extractor, model
 
@@ -34,14 +41,20 @@ def predict_tampering(feature_extractor, model, image: Image.Image, device: torc
 def load_faceforgery_model(model_name: str, device: torch.device):
     """
     Carrega o modelo de DeepFake (face forgery) e seu feature extractor.
-    Ex.: "dima806/deepfake_vs_real_image_detection",
-          "prithivMLmods/deepfake-detector-model-v1",
-          "prithivMLmods/Deep-Fake-Detector-v2-Model",
-          "prithivMLmods/Deepfake-Detection-Exp-02-22",
-          "Wvolf/ViT_Deepfake_Detection".
+    Modelos possíveis:
+      - "dima806/deepfake_vs_real_image_detection"
+      - "prithivMLmods/deepfake-detector-model-v1"
+      - "prithivMLmods/Deep-Fake-Detector-v2-Model"
+      - "prithivMLmods/Deepfake-Detection-Exp-02-22"
+      - "Wvolf/ViT_Deepfake_Detection"
+    Usa HF_TOKEN embutido para autenticação.
     """
-    feature_extractor = AutoFeatureExtractor.from_pretrained(model_name)
-    model = AutoModelForImageClassification.from_pretrained(model_name).to(device)
+    feature_extractor = AutoFeatureExtractor.from_pretrained(
+        model_name, use_auth_token=HF_TOKEN
+    )
+    model = AutoModelForImageClassification.from_pretrained(
+        model_name, use_auth_token=HF_TOKEN
+    ).to(device)
     model.eval()
     return feature_extractor, model
 
