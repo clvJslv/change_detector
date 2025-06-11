@@ -1,11 +1,24 @@
-# requirements.txt
+# Web interface
+streamlit
 
-streamlit            # Para a interface web
-torch                # Núcleo PyTorch
-torchvision          # Modelos pré-treinados (ResNet, transforms)
-lpips                # Métrica perceptual LPIPS
-Pillow               # Leitura/manipulação de imagens
-numpy                # Operações numéricas
-matplotlib
+# Deep learning
+torch
+torchvision
+timm
+
+# Perceptual similarity
+lpips
+
+# Hugging Face (se usar Transformers em outros scripts)
 transformers
-hf_xet
+
+# Image I/O & augmentation
+Pillow
+albumentations
+
+# NumPy e métricas
+numpy
+scikit-learn
+
+# (Opcional) para visualizações e debug
+matplotlib

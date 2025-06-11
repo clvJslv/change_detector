@@ -1,3 +1,4 @@
+#compare_module.py
 import torch
 from PIL import Image
 from torchvision import models, transforms
